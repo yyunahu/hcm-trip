@@ -7,124 +7,182 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icon-192.png">
 <link rel="apple-touch-icon" href="icon-180.png">
-<meta name="theme-color" content="#12302b">
+<meta name="theme-color" content="#e2e9cf">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="胡志明">
 <style>
-:root{--bg:#f1f6f3;--card:#fff;--ink:#12302b;--mute:#5d726d;--line:#cfdcd7;--acc:#c2255c;--warn:#b7791f;--warnbg:#fbf1da;--ok:#1f7a5a;
-box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1f1c;--card:#16302b;--ink:#e6f1ed;--mute:#9ab3ac;--line:#2b4a43;--acc:#f06595;--warn:#f0c36a;--warnbg:#3a2f14;--ok:#5fd0a6}}
-:root[data-theme="dark"]{--bg:#0e1f1c;--card:#16302b;--ink:#e6f1ed;--mute:#9ab3ac;--line:#2b4a43;--acc:#f06595;--warn:#f0c36a;--warnbg:#3a2f14;--ok:#5fd0a6}
+:root{--bg:#e2e9cf;--card:#f3f6e8;--ink:#2b3322;--mute:#6b765b;--line:#c3cea8;--bt:#d3ddb5;--btink:#3a4a22;--acc:#5f7a2e;--tag:#eadfb2;--tagink:#7a5a12;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1c2417;--card:#26311f;--ink:#e8efd8;--mute:#a3b08d;--line:#3b4a30;--bt:#38482b;--btink:#dbe8bd;--acc:#a8c66c;--tag:#4a4019;--tagink:#efd98a}}
+:root[data-theme="dark"]{--bg:#1c2417;--card:#26311f;--ink:#e8efd8;--mute:#a3b08d;--line:#3b4a30;--bt:#38482b;--btink:#dbe8bd;--acc:#a8c66c;--tag:#4a4019;--tagink:#efd98a}
 *{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 "PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif}
-header{padding:28px 20px 16px;max-width:640px;margin:0 auto}
-h1{margin:0;font-size:2.4rem;line-height:1.1;letter-spacing:.04em;font-weight:800}
-.sub{color:var(--mute);margin:6px 0 0}
-.count{display:inline-block;margin-top:14px;padding:4px 14px;border-radius:99px;background:var(--acc);color:#fff;font-weight:700}
-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);overflow-x:auto;white-space:nowrap;padding:8px 12px;scrollbar-width:none}
-nav button{font:inherit;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 14px;border-radius:99px;margin-right:6px;cursor:pointer}
-nav button[aria-selected="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
-nav button:focus-visible,li.chk:focus-within{outline:3px solid var(--acc);outline-offset:2px}
-main{max-width:640px;margin:0 auto;padding:16px 16px 48px}
-h2{font-size:1.25rem;margin:0 0 4px}
-.date{color:var(--mute);margin:0 0 14px}
-ol.tl{list-style:none;margin:0;padding:0;border-left:3px solid var(--line)}
-ol.tl li{position:relative;margin:0 0 14px 18px;padding:10px 12px;background:var(--card);border-radius:10px}
-ol.tl li::before{content:"";position:absolute;left:-28px;top:16px;width:11px;height:11px;border-radius:50%;background:var(--acc)}
-ol.tl li.nt::before{background:var(--line)}
-.t{font-weight:800;color:var(--acc);margin-right:8px}
-.nt .t{color:var(--mute)}
-.n{font-weight:700}
-.d{color:var(--mute);font-size:.92rem;margin-top:2px}
-.tbd{display:inline-block;margin-top:6px;margin-right:6px;padding:1px 9px;border-radius:6px;background:var(--warnbg);color:var(--warn);font-size:.85rem;font-weight:600}
-.card{background:var(--card);border-radius:10px;padding:12px 14px;margin-bottom:12px}
-.card h3{margin:0 0 4px;font-size:1.05rem}
-.card p{margin:2px 0}
+header{max-width:640px;margin:0 auto;padding:22px 20px 6px;display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.eb{margin:0;font:italic 1rem Georgia,"Times New Roman",serif;color:var(--acc)}
+h1{margin:0;font:400 2.5rem/1.1 Georgia,"Noto Serif TC","Times New Roman",serif;letter-spacing:.01em}
+h1 em{font:600 1.5rem "PingFang TC","Noto Sans TC",sans-serif;color:var(--acc);font-style:normal;margin-left:6px}
+#cd{font-size:.85rem;color:var(--mute);white-space:nowrap}
+#days{max-width:640px;margin:10px auto 0;display:flex;gap:10px;overflow-x:auto;padding:6px 16px 10px;scrollbar-width:none}
+.dc{flex:none;width:68px;padding:8px 0 10px;border:0;border-radius:20px;background:var(--card);color:var(--ink);font:inherit;text-align:center;cursor:pointer;display:flex;flex-direction:column;align-items:center;line-height:1.25}
+.dc .wd{font:italic .72rem Georgia,serif;color:var(--mute)}.dc sup{font-size:.6rem;margin-left:2px}
+.dc b{font:400 1.7rem/1.2 Georgia,serif}.dc .mo{font-size:.72rem;color:var(--mute)}
+.dc[aria-selected="true"]{background:var(--ink);color:var(--card)}.dc[aria-selected="true"] .wd,.dc[aria-selected="true"] .mo{color:var(--line)}
+.dc:focus-visible,#bar button:focus-visible,.bt:focus-visible,.pg button:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+main{max-width:640px;margin:0 auto;padding:6px 16px 110px}
+.pg{display:grid;grid-template-columns:40px 1fr 40px;align-items:center;gap:10px;margin:6px 0 14px}
+.pg button{width:40px;height:40px;border-radius:50%;border:0;background:var(--card);color:var(--ink);font-size:1.4rem;cursor:pointer}
+.pg input{width:100%;accent-color:var(--ink)}
+.pg span{grid-column:1/4;text-align:center;font:italic .85rem Georgia,serif;color:var(--mute);margin-top:-4px}
+h2{font-size:1.25rem;margin:0}
+.hint{color:var(--mute);font-size:.88rem;margin:2px 0 14px}
+ol.tl{list-style:none;margin:0;padding:0}
+li.it{display:flex;gap:14px;background:var(--card);border-radius:22px;padding:16px 18px;margin-bottom:12px;border:1px solid var(--line)}
+.tm{flex:none;width:58px;font:400 1.15rem/1.4 Georgia,"Noto Serif TC",serif}
+.tm.no{font:italic .9rem Georgia,serif;color:var(--mute);padding-top:2px}
+.bd{flex:1;min-width:0}
+.n{font-size:1.1rem;font-weight:600}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.tag{padding:1px 12px;border-radius:99px;background:var(--tag);color:var(--tagink);font-size:.82rem;font-weight:600}
+.sep{border-top:1.5px dashed var(--line);margin:10px 0}
+.d{color:var(--mute);font-size:.92rem}
+.bts,.cf{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.bts{margin-top:10px}.cf{margin-top:8px}
+.bt{display:inline-flex;align-items:center;gap:6px;padding:9px 16px;border-radius:14px;background:var(--bt);color:var(--btink);font-size:.92rem;font-weight:600;text-decoration:none}
+li.leg{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:-2px 0 12px 8px;color:var(--mute);font-size:.88rem}
+li.leg .bt{padding:5px 12px;border-radius:12px;font-size:.85rem}
+.card{background:var(--card);border-radius:22px;padding:14px 18px;margin-bottom:12px;border:1px solid var(--line)}
+.card h3{margin:0 0 4px;font-size:1.05rem}.card p{margin:2px 0}
 ul.ck{list-style:none;margin:0;padding:0}
-li.chk{background:var(--card);border-radius:10px;margin-bottom:8px}
-li.chk label{display:flex;gap:10px;padding:10px 12px;cursor:pointer}
-li.chk input{width:20px;height:20px;margin-top:3px;accent-color:var(--ok);flex:none}
+li.chk{background:var(--card);border-radius:18px;margin-bottom:8px;border:1px solid var(--line)}
+li.chk label{display:flex;gap:10px;padding:12px 14px;cursor:pointer}
+li.chk input{width:20px;height:20px;margin-top:3px;accent-color:var(--acc);flex:none}
 li.chk input:checked+span{text-decoration:line-through;color:var(--mute)}
-.prog{color:var(--mute);margin:0 0 12px}
+.prog{color:var(--mute);margin:6px 0 12px}
+#bar{position:fixed;left:0;right:0;bottom:0;z-index:5;display:flex;justify-content:center;gap:6px;background:var(--card);border-top:1px solid var(--line);padding:8px 12px calc(10px + env(safe-area-inset-bottom,0px))}
+#bar button{flex:1;max-width:180px;border:0;background:none;color:var(--mute);font:inherit;font-size:.92rem;padding:8px 4px;border-radius:14px;cursor:pointer}
+#bar button[aria-current="true"]{background:var(--bt);color:var(--btink);font-weight:700}
 @media (prefers-reduced-motion:no-preference){main>*{animation:f .25s ease-out}@keyframes f{from{opacity:.4}to{opacity:1}}}
+
+#bar{position:static;max-width:640px;margin:6px auto 0;background:none;border:0;padding:4px 16px;justify-content:flex-start;gap:8px}
+#bar button{flex:none;max-width:none;padding:8px 18px;background:var(--card)}
+main{padding-bottom:40px}
+ol.tl{position:relative;padding-left:30px}
+ol.tl::before{content:"";position:absolute;left:10px;top:20px;bottom:20px;width:3px;border-radius:3px;background:var(--line)}
+li.it{position:relative}
+li.it::before{content:"";position:absolute;left:-28px;top:18px;width:18px;height:18px;border-radius:50%;background:var(--card);border:3px solid var(--acc)}
+li.leg{margin-left:0}
+.em{margin-right:6px}
+.ex .er{display:flex;gap:10px;align-items:center;padding:6px 0;border-top:1.5px dashed var(--line)}
+.ex .er span{flex:1;min-width:0;overflow-wrap:anywhere}
+.ex .er button{border:0;background:none;color:var(--mute);font-size:1rem;cursor:pointer;padding:4px 8px}
+.ex .tot{font-weight:700;margin:8px 0 0}
+.ef{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.ef input,.ef select{font:inherit;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0}
+.ef .bt{border:0;justify-content:center;cursor:pointer;font:inherit;font-weight:600}
 </style>
 </head>
 <body>
-<header>
-<h1>胡志明</h1>
-<p class="sub">2026/12/1（二）– 12/5（六）　台北往返</p>
-<span class="count" id="cd" hidden></span>
-</header>
-<nav id="nav" role="tablist"></nav>
+<header><div><p class="eb">Xin chào · 胡志明之旅</p><h1>Saigon<em>遊記</em></h1></div><span id="cd" hidden></span></header>
+<nav id="bar" aria-label="主選單"></nav>
+<div id="days" hidden></div>
 <main id="main"></main>
 <script>
+var nav,main=document.getElementById("main");
+var M="https://www.google.com/maps/",KL="https://www.klook.com/zh-TW/activity/29990-cu-chi-tunnels-ben-tre-ham-luong-day-tour-ho-chi-minh/";
+var Q={hotel:"Kin Hotel, 36-38 Thai Van Lung, Ben Nghe, Ho Chi Minh City",pc:"Phở Chào Ho Chi Minh City",post:"Saigon Central Post Office",book:"Nguyen Van Binh Book Street Ho Chi Minh City",ivoire:"Ivoire Pastry Boutique Ho Chi Minh City",miu:"MIUMIU SPA 1 Ho Chi Minh City",lej:"Le Jardin Ho Chi Minh City",pq:"Pho Quynh, 323 Phạm Ngũ Lão, Bến Thành, Hồ Chí Minh",nola:"Nola Spa, 24 Bis Đông Du, Sài Gòn, Hồ Chí Minh",pizza:"Pizza 4P's Le Thanh Ton Ho Chi Minh City",gar:"11 Garmentory Ho Chi Minh City",ch:"Tan Dinh Church Ho Chi Minh City",ngam:"ngâm CAFE, 193/19 Nam Kỳ Khởi Nghĩa, Xuân Hòa, Hồ Chí Minh",blue:"Blue Dream Bread Saigon",cong:"Cộng Cà Phê, 274 Hai Bà Trưng, Tân Định, Hồ Chí Minh",nha:"Nhà Ba Teria Craft Matcha & Coffee Ho Chi Minh City",rose:"Rose Spa Dakao Ho Chi Minh City",mua:"Mùa Craft Saké Ho Chi Minh City",sum:"Summer Experiment bar Ho Chi Minh City",lh:"Little HaNoi Egg Coffee Ky Con Ho Chi Minh City",bm:"Bánh Mì Huynh Hoa Ho Chi Minh City",sa:"Sả Spa & Onsen Ho Chi Minh City",sam:"SÂM Saigon, 51 Trần Nhật Duật, Tân Định, Hồ Chí Minh",pv:"Phở Việt Nam, 84 Hồ Tùng Mậu, Sài Gòn, Hồ Chí Minh",ha:"Massage Hạ Spa Tân Bình Ho Chi Minh City",air:"Tan Son Nhat International Airport"};
+var U={nola:"https://maps.app.goo.gl/ZaXjgEqc8c5SLs1cA",sam:"https://maps.app.goo.gl/XKSRvyevQgDwovLv6"};
+var LEG={"post>book":"步行約 2–3 分（兩地相鄰）","book>ivoire":"步行約 10 分（依你的行程表）"};
+var WALK={"post>book":1,"book>ivoire":1,"ivoire>miu":1,"miu>lej":1};
 var DAYS=[
 {d:"12/1（二）",h:"抵達日",i:[
 ["07:40","搭機 JX711","台北 T2 → 胡志明 T2，10:30 抵達"],
-["12:30","到飯店寄行李","境飯店 Thai Van Lung；入住時間未寫",["入住時間"]],
-["13:00","午餐：Phở Chào","炸牛肉河粉"],
-["14:30","郵政局、書街"],
-["","Ivoire Pastry Boutique","甜點店，營業 10:30–19:00，需在 19:00 前到",["時間"]],
-["","G360 Spa 按摩","飯店附近",["預約時間"]],
-["19:30","晚餐：Le Jardin","飯店附近法餐，營業 17:30–21:00",["是否已訂位"]]]},
+["12:30","到飯店寄行李","境飯店 Thai Van Lung",["入住時間"],"hotel"],
+["13:00","午餐：Phở Chào","炸牛肉河粉",["分店位置"],"pc"],
+["14:30","郵政局","",[],"post"],
+["","書街","",["時間"],"book"],
+["","Ivoire Pastry Boutique","好口碑推薦的甜點店，營業 10:30–19:00",["時間"],"ivoire"],
+["17:30","按摩：MIUMIU SPA 1","飯店附近",[],"miu"],
+["19:30","晚餐：Le Jardin","飯店附近法餐，營業 17:30–21:00",["是否已訂位"],"lej"]]},
 {d:"12/2（三）",h:"一日遊",i:[
-["07:00","一日遊集合","",["行程名稱","集合地點","旅行社與訂單","費用與包含項目"]],
+["07:00","一日遊集合","Klook：古芝地道、檳椥、Ham Luong 一日遊",["集合地點","訂單編號"],"",{u:KL,l:"Klook 行程頁"}],
 ["19:00","返回市區","約 19:00"],
-["","晚餐：Pho Quynh","河粉",["時間"]],
-["","按摩：Nola Spa","",["預約時間"]]]},
+["","晚餐：Pho Quynh","河粉",["時間"],"pq"],
+["","按摩：Nola Spa","",["時間"],"nola"]]},
 {d:"12/3（四）",h:"逛街與咖啡",i:[
-["","早餐","飯店早餐，或飯店旁 Pizza 4P's Le Thanh Ton",["擇一","是否訂位"]],
-["","11 Garmentory","最大間的選物店",["時間"]],
-["","粉紅教堂（新定教堂）","",["時間"]],
-["","咖啡廳 4 選 1","ngâm CAFE（麵包咖啡）、Blue Dream Bread Saigon、Cộng Coffee、Nhà Ba Teria（像峽谷的咖啡廳）",["決定哪一間"]],
-["","Rose Spa DAKAO 按摩","",["預約時間"]],
-["","晚餐：Mùa Craft Saké","清酒吧",["時間","是否訂位"]],
-["","酒吧：Summer Experiment","",["時間"]]]},
+["","早餐","飯店早餐，或飯店旁 Pizza 4P's Le Thanh Ton",["時間","擇一"],"",{m:"pizza"}],
+["","11 Garmentory","最大間的選物店",["時間"],"gar"],
+["","粉紅教堂（新定教堂）","",["時間"],"ch"],
+["","咖啡廳 4 選 1","點下面的店名開地圖",["時間","決定哪一間"],"",{c:[["ngâm CAFE","麵包咖啡","ngam"],["Blue Dream Bread Saigon","也是有麵包","blue"],["Cộng Coffee","","cong"],["Nhà Ba Teria","Craft Matcha & Coffee，像峽谷的咖啡廳","nha"]]}],
+["17:00","按摩：Rose Spa DAKAO","",[],"rose"],
+["20:00","晚餐：Mùa Craft Saké","清酒吧",["是否已訂位"],"mua"],
+["","酒吧：Summer Experiment","",["時間"],"sum"]]},
 {d:"12/4（五）",h:"悠閒日",i:[
-["","飯店早餐、游泳池","整裝後再出門"],
-["","Little HaNoi Egg Coffee（Ky Con）","越南蛋咖啡",["時間"]],
+["","飯店早餐、游泳池","整裝後再出門",["時間"]],
+["","Little HaNoi Egg Coffee（Ky Con）","越南蛋咖啡",["時間"],"lh"],
 ["","逛街買買","",["地點與時間"]],
-["","Bánh Mì Huynh Hoa","越南法國麵包",["時間"]],
-["","Sả Spa & Onsen","",["預約時間"]],
-["","晚餐：SÂM Saigon","大學同學的酒吧",["時間","是否訂位"]]]},
+["","Bánh Mì Huynh Hoa","越南法國麵包",["時間"],"bm"],
+["17:30","Sả Spa & Onsen","",[],"sa"],
+["20:00","晚餐：SÂM Saigon","大學同學的酒吧",["是否已訂位"],"sam"]]},
 {d:"12/5（六）",h:"返程日",i:[
 ["","早餐、整理退房","",["退房時間"]],
-["","喝抹茶","",["店名","時間"]],
-["","按摩","",["店名","預約時間"]],
-["15:00","出發前往機場","",["交通方式"]],
+["09:30","吃河粉：PHỞ VIỆT NAM","",[],"pv"],
+["11:00","喝抹茶","",["店名"]],
+["13:30","按摩：MASSAGE HẠ SPA Tân Bình","",[],"ha"],
+["16:00前","抵達機場","新山一機場",["交通方式"],"air"],
 ["18:00","搭機 JX714","胡志明 T2 → 台北 T2，22:20 抵達"]]}
 ];
-var TODO=[
-"Day 2 一日遊：行程名稱、集合地點、旅行社與訂單編號、費用、包含項目",
-"Day 5：抹茶與按摩的店名和時間、退房時間",
-"飯店：入住時間、訂房編號、完整中文名稱",
-"所有按摩的預約時間（G360、Nola、Rose Spa、Sả Spa、Day 5）",
-"Day 3、Day 4 各項預計時間",
-"訂位狀態：Pizza 4P's、Le Jardin、SÂM Saigon、Mùa Craft Saké",
-"E-visa 是否已核准並列印",
-"Day 3 早餐與咖啡廳 4 選 1",
-"Day 5 回程往機場的交通方式",
-"行程 PDF 封面的「香港」字樣是否要改"
-];
+var TODO=["Day 2 一日遊：集合地點、訂單編號","Day 5：喝抹茶的店名、退房時間","Day 4：逛街買買的地點","Day 3：各項時間，以及咖啡廳 4 選 1","Day 4 早餐、咖啡、麵包的時間；Day 1 書街與 Ivoire 的時間","Day 2 晚餐與 Nola Spa 的時間","確認 Phở Chào 的分店位置","訂位狀態：Le Jardin、SÂM Saigon、Mùa Craft Saké","飯店：入住時間、訂房編號","E-visa 是否已核准並列印","Day 5 往機場的交通方式","行程 PDF 封面的「香港」字樣是否要改"];
+function pu(k){return U[k]||M+"search/?api=1&query="+encodeURIComponent(Q[k])}
+function du(a,b,m){return M+"dir/?api=1&origin="+encodeURIComponent(Q[a])+"&destination="+encodeURIComponent(Q[b])+"&travelmode="+m}
 var done=[];
-try{done=JSON.parse(localStorage.getItem("hcm-done")||"[]")}catch(e){done=[]}
-function save(){try{localStorage.setItem("hcm-done",JSON.stringify(done))}catch(e){}}
-var tabs=["資訊","Day 1","Day 2","Day 3","Day 4","Day 5","待補"],cur=1;
-var nav=document.getElementById("nav"),main=document.getElementById("main");
-function drawNav(){nav.innerHTML="";tabs.forEach(function(t,k){var b=document.createElement("button");b.textContent=t+(k==6?"（"+(TODO.length-done.length)+"）":"");b.setAttribute("role","tab");b.setAttribute("aria-selected",k==cur);b.onclick=function(){cur=k;draw();window.scrollTo(0,0)};nav.appendChild(b)})}
-function draw(){drawNav();main.innerHTML="";
-if(cur==0){main.innerHTML='<div class="card"><h3>航班</h3><p>12/1　台北 T2 → 胡志明 T2　JX711　07:40–10:30</p><p>12/5　胡志明 T2 → 台北 T2　JX714　18:00–22:20</p></div><div class="card"><h3>住宿</h3><p>境飯店 Thai Van Lung</p><p>36-38 Thai Van Lung, Ben Nghe Ward, Sai Gon</p></div><div class="card"><h3>簽證</h3><p>E-visa，約 3 個工作天，USD 25。核准後列印，入境時出示。</p></div><div class="card"><h3>機場接送</h3><p>用 Grab。從 A1 出口出來，跨過車道就是停車場；實際上車地點以 App 顯示為準。</p></div><div class="card"><h3>插座</h3><p>越南 220V，A 型與 C 型混用。台灣電器是 110V，建議帶 C 型轉接頭 1–2 個。</p></div>';return}
-if(cur==6){var p=document.createElement("p");p.className="prog";p.textContent="已補 "+done.length+" / "+TODO.length+" 項";main.appendChild(p);var u=document.createElement("ul");u.className="ck";TODO.forEach(function(x,k){var l=document.createElement("li");l.className="chk";var lb=document.createElement("label");var c=document.createElement("input");c.type="checkbox";c.checked=done.indexOf(k)>-1;c.onchange=function(){done=done.filter(function(y){return y!==k});if(c.checked)done.push(k);save();p.textContent="已補 "+done.length+" / "+TODO.length+" 項";drawNav()};var s=document.createElement("span");s.textContent=x;lb.appendChild(c);lb.appendChild(s);l.appendChild(lb);u.appendChild(l)});main.appendChild(u);return}
-var D=DAYS[cur-1];main.innerHTML='<h2>Day '+cur+'　'+D.h+'</h2><p class="date">'+D.d+'</p>';
-var ol=document.createElement("ol");ol.className="tl";
-D.i.forEach(function(x){var li=document.createElement("li");if(!x[0])li.className="nt";
-var h='<span class="t">'+(x[0]||"時間未定")+'</span><span class="n">'+x[1]+'</span>';
-if(x[2])h+='<div class="d">'+x[2]+'</div>';
-(x[3]||[]).forEach(function(f){h+='<span class="tbd">待補：'+f+'</span>'});
-li.innerHTML=h;ol.appendChild(li)});
-main.appendChild(ol)}
+try{done=JSON.parse(localStorage.getItem("hcm-done2")||"[]")}catch(e){done=[]}
+function save(){try{localStorage.setItem("hcm-done2",JSON.stringify(done))}catch(e){}}
+var view="trip",cur=1,WD=["TUE","WED","THU","FRI","SAT"];
+var SV='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
+var IC={pin:SV+'<path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',nav:SV+'<path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>',ln:SV+'<path d="M10 5H5a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-5M14 3h7v7M21 3L10 14"/></svg>',cf:SV+'<path d="M4 8h13v6a5 5 0 01-5 5H9a5 5 0 01-5-5V8zM17 10h2a2 2 0 010 4h-2M8 3v2M12 3v2"/></svg>'};
+function bt(h,i,l){return '<a class="bt" href="'+h+'" target="_blank" rel="noopener">'+IC[i]+l+'</a>'}
+var IR=[[/搭機|抵達機場/,"✈️"],[/一日遊/,"🚌"],[/按摩|Spa/i,"💆"],[/咖啡|Coffee|CAFE/i,"☕"],[/Saké|酒吧|Summer/,"🍸"],[/抹茶/,"🍵"],[/Ivoire/,"🍰"],[/Bánh Mì/,"🥖"],[/餐|河粉|吃/,"🍽️"],[/寄行李|退房/,"🧳"],[/逛街|Garmentory/,"🛍️"]];
+function ico(x){var e="";IR.some(function(r){if(r[0].test(x[1])){e=r[1];return true}});if(!e&&x[4])e="📷";return e?'<span class="em">'+e+'</span>':""}
+var EXP={};try{EXP=JSON.parse(localStorage.getItem("hcm-exp")||"{}")}catch(e){EXP={}}
+function saveE(){try{localStorage.setItem("hcm-exp",JSON.stringify(EXP))}catch(e){}}
+function expCard(){var box=document.createElement("div");box.className="card ex";
+function r(){var L=EXP[cur]||[],T={};L.forEach(function(e){T[e.c]=(T[e.c]||0)+e.a});
+var h='<h3>💰 記帳</h3><p class="d">記錄只存在這支手機，旅伴看不到。</p>';
+L.forEach(function(e,i){h+='<div class="er"><span>'+e.n.replace(/</g,"&lt;")+'</span><b>'+e.a.toLocaleString()+' '+e.c+'</b><button data-i="'+i+'" aria-label="刪除">✕</button></div>'});
+var tt=Object.keys(T).map(function(c){return Math.round(T[c]*100)/100;}).length?Object.keys(T).map(function(c){return (Math.round(T[c]*100)/100).toLocaleString()+" "+c}).join("　"):"";
+if(tt)h+='<p class="tot">今日合計　'+tt+'</p>';
+h+='<div class="ef"><input id="en" placeholder="項目" aria-label="項目"><input id="ea" type="number" inputmode="decimal" placeholder="金額" aria-label="金額"><select id="ec" aria-label="幣別"><option>VND</option><option>TWD</option></select><button class="bt" id="eb">新增</button></div>';
+box.innerHTML=h;
+box.querySelectorAll(".er button").forEach(function(b){b.onclick=function(){L.splice(+b.dataset.i,1);EXP[cur]=L;saveE();r()}});
+box.querySelector("#eb").onclick=function(){var n=box.querySelector("#en").value.trim(),a=parseFloat(box.querySelector("#ea").value);if(!n||!isFinite(a)||a<=0)return;L.push({n:n,a:a,c:box.querySelector("#ec").value});EXP[cur]=L;saveE();r()}}
+r();return box}
+var prev="";
+function draw(){
+var bar=document.getElementById("bar"),st=document.getElementById("days");bar.innerHTML="";
+[["trip","行程"],["info","資訊"],["todo","待補（"+(TODO.length-done.length)+"）"]].forEach(function(v){var b=document.createElement("button");b.textContent=v[1];b.setAttribute("aria-current",view==v[0]);b.onclick=function(){view=v[0];draw();window.scrollTo(0,0)};bar.appendChild(b)});
+st.hidden=view!="trip";st.innerHTML="";
+if(view=="trip"){DAYS.forEach(function(D,k){var b=document.createElement("button");b.className="dc";b.setAttribute("aria-selected",k+1==cur);b.innerHTML='<span class="wd">'+WD[k]+'<sup>D'+(k+1)+'</sup></span><b>'+(k+1)+'</b><span class="mo">12月</span>';b.onclick=function(){cur=k+1;draw()};st.appendChild(b)});
+var sel=st.children[cur-1];if(sel)st.scrollLeft=sel.offsetLeft-st.clientWidth/2+sel.clientWidth/2}
+main.innerHTML="";
+if(view=="info"){main.innerHTML='<div class="card"><h3>航班</h3><p>12/1　台北 T2 → 胡志明 T2　JX711　07:40–10:30</p><p>12/5　胡志明 T2 → 台北 T2　JX714　18:00–22:20</p></div><div class="card"><h3>住宿</h3><p>境飯店 Thai Van Lung</p><p>36-38 Thai Van Lung, Ben Nghe Ward, Sai Gon</p><div class="bts">'+bt(pu("hotel"),"pin","地圖")+'</div></div><div class="card"><h3>簽證</h3><p>E-visa，約 3 個工作天，USD 25。核准後列印，入境時出示。</p></div><div class="card"><h3>機場接送</h3><p>用 Grab。從 A1 出口出來，跨過車道就是停車場；實際上車地點以 App 顯示為準。</p></div><div class="card"><h3>插座</h3><p>越南 220V，A 型與 C 型混用。台灣電器是 110V，建議帶 C 型轉接頭 1–2 個。</p></div>';return}
+if(view=="todo"){var p=document.createElement("p");p.className="prog";p.textContent="已補 "+done.length+" / "+TODO.length+" 項";main.appendChild(p);var u=document.createElement("ul");u.className="ck";TODO.forEach(function(x,k){var l=document.createElement("li");l.className="chk";var lb=document.createElement("label");var c=document.createElement("input");c.type="checkbox";c.checked=done.indexOf(k)>-1;c.onchange=function(){done=done.filter(function(y){return y!==k});if(c.checked)done.push(k);save();p.textContent="已補 "+done.length+" / "+TODO.length+" 項";draw()};var s=document.createElement("span");s.textContent=x;lb.appendChild(c);lb.appendChild(s);l.appendChild(lb);u.appendChild(l)});main.appendChild(u);return}
+var D=DAYS[cur-1];
+var pg=document.createElement("div");pg.className="pg";pg.innerHTML='<button aria-label="前一天">‹</button><input type="range" min="1" max="5" value="'+cur+'" aria-label="選擇天數"><button aria-label="後一天">›</button><span>Day '+cur+' / 5</span>';
+var bs=pg.querySelectorAll("button");bs[0].onclick=function(){if(cur>1){cur--;draw()}};bs[1].onclick=function(){if(cur<5){cur++;draw()}};pg.querySelector("input").onchange=function(e){cur=+e.target.value;draw()};
+main.appendChild(pg);
+var hh=document.createElement("div");hh.innerHTML='<h2>Day '+cur+'　'+D.h+'</h2><p class="hint">'+D.d+'</p>';main.appendChild(hh);
+var ol=document.createElement("ol");ol.className="tl";prev="";
+D.i.forEach(function(x){var k=x[4]||"",ex=x[5]||{};
+if(prev&&k){var g=document.createElement("li");g.className="leg";var t=LEG[prev+">"+k];g.innerHTML=(t?'<span>🚶 '+t+'</span>':'')+(WALK[prev+">"+k]?bt(du(prev,k,"walking"),"nav","步行"):"")+(WALK[prev+">"+k]?"":bt(du(prev,k,"driving"),"nav","車程"));ol.appendChild(g)}
+var li=document.createElement("li");li.className="it";
+var tg="";(x[3]||[]).forEach(function(f){tg+='<span class="tag">待補：'+f+'</span>'});
+var bb="";if(k)bb+=bt(pu(k),"pin","地圖");if(ex.m)bb+=bt(pu(ex.m),"pin","地圖");if(ex.u)bb+=bt(ex.u,"ln",ex.l);
+var cf="";(ex.c||[]).forEach(function(c){cf+='<div class="cf">'+bt(pu(c[2]),"cf",c[0])+(c[1]?'<span class="d">'+c[1]+'</span>':'')+'</div>'});
+li.innerHTML='<div class="tm'+(x[0]?'':' no')+'">'+(x[0]||"未定")+'</div><div class="bd"><div class="n">'+ico(x)+x[1]+'</div>'+(tg?'<div class="tags">'+tg+'</div>':'')+((x[2]||cf||bb)?'<div class="sep"></div>':'')+(x[2]?'<div class="d">'+x[2]+'</div>':'')+cf+(bb?'<div class="bts">'+bb+'</div>':'')+'</div>';
+ol.appendChild(li);prev=k});
+main.appendChild(ol);main.appendChild(expCard())}
 var n=Math.ceil((new Date(2026,11,1)-new Date())/864e5),cd=document.getElementById("cd");
 if(n>0){cd.textContent="距出發 "+n+" 天";cd.hidden=false}
 draw();
