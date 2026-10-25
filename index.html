@@ -81,6 +81,28 @@ li.leg{margin-left:0}
 .ef{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .ef input,.ef select{font:inherit;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:0}
 .ef .bt{border:0;justify-content:center;cursor:pointer;font:inherit;font-weight:600}
+
+.tag.ok{background:var(--bt);color:var(--btink)}
+.gh{margin:16px 0 6px;font-size:1rem}
+.hero{border-radius:22px;overflow:hidden;margin:0 0 12px;border:1px solid var(--line)}
+.hero svg{display:block;width:100%;height:auto}
+#bar{overflow-x:auto;scrollbar-width:none;padding:4px 14px}
+#bar button{padding:8px 14px;white-space:nowrap}
+
+.tk{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin-bottom:12px;overflow:hidden}
+.tk .row{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:8px}
+.ttag{border:1.5px solid var(--ink);padding:2px 10px;border-radius:3px;font:600 .72rem Georgia,serif;letter-spacing:.16em}
+.clk{display:flex;align-items:center;gap:6px;font:1.05rem Georgia,"Noto Serif TC",serif}
+.tk h3{margin:0;font-size:1.12rem}
+.tk .sub{color:var(--mute);margin:2px 0 0;font-size:.92rem}
+.dv{position:relative;border-top:2px dashed var(--line);margin:14px -18px}
+.dv::before,.dv::after{content:"";position:absolute;top:-10px;width:18px;height:18px;border-radius:50%;background:var(--bg)}
+.dv::before{left:-9px}.dv::after{right:-9px}
+.lb{font:.7rem Georgia,serif;letter-spacing:.14em;color:var(--mute);text-transform:uppercase;margin-top:4px}
+.num{font:600 1.08rem "SF Mono",Menlo,Consolas,monospace;letter-spacing:.03em;overflow-wrap:anywhere}
+.cp{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:2px 0 10px}
+.cpb{flex:none;border:0;background:var(--bt);color:var(--btink);border-radius:10px;padding:6px 10px;cursor:pointer;font:inherit;font-size:.85rem}
+button.bt{border:0;cursor:pointer;font:inherit;font-size:.92rem;font-weight:600}
 </style>
 </head>
 <body>
@@ -91,9 +113,11 @@ li.leg{margin-left:0}
 <script>
 var nav,main=document.getElementById("main");
 var M="https://www.google.com/maps/",KL="https://www.klook.com/zh-TW/activity/29990-cu-chi-tunnels-ben-tre-ham-luong-day-tour-ho-chi-minh/";
-var Q={hotel:"Kin Hotel, 36-38 Thai Van Lung, Ben Nghe, Ho Chi Minh City",pc:"Phở Chào Ho Chi Minh City",post:"Saigon Central Post Office",book:"Nguyen Van Binh Book Street Ho Chi Minh City",ivoire:"Ivoire Pastry Boutique Ho Chi Minh City",miu:"MIUMIU SPA 1 Ho Chi Minh City",lej:"Le Jardin Ho Chi Minh City",pq:"Pho Quynh, 323 Phạm Ngũ Lão, Bến Thành, Hồ Chí Minh",nola:"Nola Spa, 24 Bis Đông Du, Sài Gòn, Hồ Chí Minh",pizza:"Pizza 4P's Le Thanh Ton Ho Chi Minh City",gar:"11 Garmentory Ho Chi Minh City",ch:"Tan Dinh Church Ho Chi Minh City",ngam:"ngâm CAFE, 193/19 Nam Kỳ Khởi Nghĩa, Xuân Hòa, Hồ Chí Minh",blue:"Blue Dream Bread Saigon",cong:"Cộng Cà Phê, 274 Hai Bà Trưng, Tân Định, Hồ Chí Minh",nha:"Nhà Ba Teria Craft Matcha & Coffee Ho Chi Minh City",rose:"Rose Spa Dakao Ho Chi Minh City",mua:"Mùa Craft Saké Ho Chi Minh City",sum:"Summer Experiment bar Ho Chi Minh City",lh:"Little HaNoi Egg Coffee Ky Con Ho Chi Minh City",bm:"Bánh Mì Huynh Hoa Ho Chi Minh City",sa:"Sả Spa & Onsen Ho Chi Minh City",sam:"SÂM Saigon, 51 Trần Nhật Duật, Tân Định, Hồ Chí Minh",pv:"Phở Việt Nam, 84 Hồ Tùng Mậu, Sài Gòn, Hồ Chí Minh",ha:"Massage Hạ Spa Tân Bình Ho Chi Minh City",air:"Tan Son Nhat International Airport"};
-var U={nola:"https://maps.app.goo.gl/ZaXjgEqc8c5SLs1cA",sam:"https://maps.app.goo.gl/XKSRvyevQgDwovLv6"};
+var Q={hotel:"Kin Hotel, 36-38 Thai Van Lung, Ben Nghe, Ho Chi Minh City",pc:"Phở Chào Ho Chi Minh City",post:"Saigon Central Post Office",book:"Nguyen Van Binh Book Street Ho Chi Minh City",ivoire:"Ivoire Pastry Boutique Ho Chi Minh City",miu:"MIUMIU SPA 2 Ho Chi Minh City",lej:"Le Jardin Ho Chi Minh City",pq:"Pho Quynh, 323 Phạm Ngũ Lão, Bến Thành, Hồ Chí Minh",nola:"Nola Spa, 24 Bis Đông Du, Sài Gòn, Hồ Chí Minh",pizza:"Pizza 4P's Le Thanh Ton Ho Chi Minh City",gar:"11 Garmentory Ho Chi Minh City",ch:"Tan Dinh Church Ho Chi Minh City",ngam:"ngâm CAFE, 193/19 Nam Kỳ Khởi Nghĩa, Xuân Hòa, Hồ Chí Minh",blue:"Blue Dream Bread Saigon",cong:"Cộng Cà Phê, 274 Hai Bà Trưng, Tân Định, Hồ Chí Minh",nha:"Nhà Ba Teria Craft Matcha & Coffee Ho Chi Minh City",rose:"Rose Spa Dakao Ho Chi Minh City",mua:"Mùa Craft Saké Ho Chi Minh City",sum:"Summer Experiment bar Ho Chi Minh City",lh:"Little HaNoi Egg Coffee Ky Con Ho Chi Minh City",bm:"Bánh Mì Huynh Hoa Ho Chi Minh City",sa:"Sả Spa & Onsen Ho Chi Minh City",sam:"SÂM Saigon, 51 Trần Nhật Duật, Tân Định, Hồ Chí Minh",pv:"Phở Việt Nam, 84 Hồ Tùng Mậu, Sài Gòn, Hồ Chí Minh",ha:"Massage Hạ Spa Tân Bình Ho Chi Minh City",air:"Tan Son Nhat International Airport",koc:"Kocha Matcha Spot, Ho Chi Minh City"};
+var U={miu:"https://maps.app.goo.gl/tosuwFS4b5jLGEGm6",koc:"https://maps.app.goo.gl/H2c6iLMuQvozgAty7",nola:"https://maps.app.goo.gl/ZaXjgEqc8c5SLs1cA",sam:"https://maps.app.goo.gl/XKSRvyevQgDwovLv6"};
 var LEG={"post>book":"步行約 2–3 分（兩地相鄰）","book>ivoire":"步行約 10 分（依你的行程表）"};
+var HRS={pc:"06:30–21:00",post:"約 07:00–19:00（週末可能提早關）",ivoire:"10:30–19:00",lej:"11:00–14:00、17:30–21:00",pq:"24 小時",pizza:"約 10:00–23:00（可能 11:00 才開）",miu:"09:30–23:00（週三公休）",nola:"09:30–02:00",rose:"09:00–21:00",sa:"09:00–21:00",ha:"09:00–22:00",koc:"08:30–22:00",mua:"11:00–23:00",sum:"16:00–01:00",sam:"18:00–00:00（週一公休）"};
+var KEEP=["集合地點","訂單編號","退房時間","交通方式"];
 var WALK={"post>book":1,"book>ivoire":1,"ivoire>miu":1,"miu>lej":1};
 var DAYS=[
 {d:"12/1（二）",h:"抵達日",i:[
@@ -102,20 +126,20 @@ var DAYS=[
 ["13:00","午餐：Phở Chào","炸牛肉河粉",["分店位置"],"pc"],
 ["14:30","郵政局","",[],"post"],
 ["","書街","",["時間"],"book"],
-["","Ivoire Pastry Boutique","好口碑推薦的甜點店，營業 10:30–19:00",["時間"],"ivoire"],
-["17:30","按摩：MIUMIU SPA 1","飯店附近",[],"miu"],
-["19:30","晚餐：Le Jardin","飯店附近法餐，營業 17:30–21:00",["是否已訂位"],"lej"]]},
+["","Ivoire Pastry Boutique","好口碑推薦的甜點店",["時間"],"ivoire"],
+["17:30","按摩：MIUMIU SPA 2","Aroma massage 90 分鐘",["✓已預約"],"miu"],
+["19:30","晚餐：Le Jardin","飯店附近法餐",["是否已訂位"],"lej"]]},
 {d:"12/2（三）",h:"一日遊",i:[
 ["07:00","一日遊集合","Klook：古芝地道、檳椥、Ham Luong 一日遊",["集合地點","訂單編號"],"",{u:KL,l:"Klook 行程頁"}],
 ["19:00","返回市區","約 19:00"],
 ["","晚餐：Pho Quynh","河粉",["時間"],"pq"],
-["","按摩：Nola Spa","",["時間"],"nola"]]},
+["21:30","按摩：Nola Spa","精油身體按摩 90 分鐘 + 洗髮 45 分鐘 ×2",["✓已預約"],"nola"]]},
 {d:"12/3（四）",h:"逛街與咖啡",i:[
 ["","早餐","飯店早餐，或飯店旁 Pizza 4P's Le Thanh Ton",["時間","擇一"],"",{m:"pizza"}],
 ["","11 Garmentory","最大間的選物店",["時間"],"gar"],
 ["","粉紅教堂（新定教堂）","",["時間"],"ch"],
 ["","咖啡廳 4 選 1","點下面的店名開地圖",["時間","決定哪一間"],"",{c:[["ngâm CAFE","麵包咖啡","ngam"],["Blue Dream Bread Saigon","也是有麵包","blue"],["Cộng Coffee","","cong"],["Nhà Ba Teria","Craft Matcha & Coffee，像峽谷的咖啡廳","nha"]]}],
-["17:00","按摩：Rose Spa DAKAO","",[],"rose"],
+["17:30","按摩：Rose Spa DAKAO","療程：Package 5",["✓已預約"],"rose"],
 ["20:00","晚餐：Mùa Craft Saké","清酒吧",["是否已訂位"],"mua"],
 ["","酒吧：Summer Experiment","",["時間"],"sum"]]},
 {d:"12/4（五）",h:"悠閒日",i:[
@@ -123,26 +147,41 @@ var DAYS=[
 ["","Little HaNoi Egg Coffee（Ky Con）","越南蛋咖啡",["時間"],"lh"],
 ["","逛街買買","",["地點與時間"]],
 ["","Bánh Mì Huynh Hoa","越南法國麵包",["時間"],"bm"],
-["17:30","Sả Spa & Onsen","",[],"sa"],
+["17:30","按摩：Sả Spa & Onsen","Body massage 3 in 1，120 分鐘",["✓已預約"],"sa"],
 ["20:00","晚餐：SÂM Saigon","大學同學的酒吧",["是否已訂位"],"sam"]]},
 {d:"12/5（六）",h:"返程日",i:[
 ["","早餐、整理退房","",["退房時間"]],
 ["09:30","吃河粉：PHỞ VIỆT NAM","",[],"pv"],
-["11:00","喝抹茶","",["店名"]],
-["13:30","按摩：MASSAGE HẠ SPA Tân Bình","",[],"ha"],
+["11:00","喝抹茶：Kocha Matcha Spot","",[],"koc"],
+["13:30","按摩：MASSAGE HẠ SPA Tân Bình","Grapefruit Blossom 洗髮 45 分鐘 + Spa Body 75 分鐘",["✓已預約"],"ha"],
 ["16:00前","抵達機場","新山一機場",["交通方式"],"air"],
 ["18:00","搭機 JX714","胡志明 T2 → 台北 T2，22:20 抵達"]]}
 ];
-var TODO=["Day 2 一日遊：集合地點、訂單編號","Day 5：喝抹茶的店名、退房時間","Day 4：逛街買買的地點","Day 3：各項時間，以及咖啡廳 4 選 1","Day 4 早餐、咖啡、麵包的時間；Day 1 書街與 Ivoire 的時間","Day 2 晚餐與 Nola Spa 的時間","確認 Phở Chào 的分店位置","訂位狀態：Le Jardin、SÂM Saigon、Mùa Craft Saké","飯店：入住時間、訂房編號","E-visa 是否已核准並列印","Day 5 往機場的交通方式","行程 PDF 封面的「香港」字樣是否要改"];
+var TODO=["Day 2 一日遊：集合地點、訂單編號","E-visa 是否已核准並列印","買 AirTag","越南入境申報","旅平險購買","購買 eSIM","台北機場接送"];
 function pu(k){return U[k]||M+"search/?api=1&query="+encodeURIComponent(Q[k])}
 function du(a,b,m){return M+"dir/?api=1&origin="+encodeURIComponent(Q[a])+"&destination="+encodeURIComponent(Q[b])+"&travelmode="+m}
 var done=[];
-try{done=JSON.parse(localStorage.getItem("hcm-done2")||"[]")}catch(e){done=[]}
-function save(){try{localStorage.setItem("hcm-done2",JSON.stringify(done))}catch(e){}}
+try{done=JSON.parse(localStorage.getItem("hcm-done4")||"[]")}catch(e){done=[]}
+function save(){try{localStorage.setItem("hcm-done4",JSON.stringify(done))}catch(e){}}
 var view="trip",cur=1,WD=["TUE","WED","THU","FRI","SAT"];
 var SV='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">';
 var IC={pin:SV+'<path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>',nav:SV+'<path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>',ln:SV+'<path d="M10 5H5a2 2 0 00-2 2v12a2 2 0 002 2h12a2 2 0 002-2v-5M14 3h7v7M21 3L10 14"/></svg>',cf:SV+'<path d="M4 8h13v6a5 5 0 01-5 5H9a5 5 0 01-5-5V8zM17 10h2a2 2 0 010 4h-2M8 3v2M12 3v2"/></svg>'};
 function bt(h,i,l){return '<a class="bt" href="'+h+'" target="_blank" rel="noopener">'+IC[i]+l+'</a>'}
+var CH='<svg viewBox="0 0 320 150" role="img" aria-label="粉紅教堂插畫"><rect width="320" height="150" fill="#bcd6e6"/><circle cx="256" cy="44" r="22" fill="#fbe3b0"/><ellipse cx="62" cy="34" rx="30" ry="9" fill="#fff" opacity=".8"/><ellipse cx="82" cy="28" rx="20" ry="8" fill="#fff" opacity=".8"/><ellipse cx="250" cy="92" rx="26" ry="7" fill="#fff" opacity=".7"/><rect y="124" width="320" height="26" fill="#6f9170"/><rect x="150" y="124" width="20" height="26" fill="#e2cdb8"/><rect x="92" y="74" width="32" height="50" fill="#e9a0aa"/><rect x="196" y="74" width="32" height="50" fill="#e9a0aa"/><rect x="110" y="74" width="14" height="50" fill="#cf808e"/><rect x="214" y="74" width="14" height="50" fill="#cf808e"/><polygon points="88,74 128,74 108,44" fill="#786274"/><polygon points="192,74 232,74 212,44" fill="#786274"/><rect x="124" y="96" width="72" height="28" fill="#e9a0aa"/><rect x="140" y="50" width="40" height="74" fill="#e9a0aa"/><rect x="160" y="50" width="20" height="74" fill="#cf808e"/><polygon points="136,50 184,50 160,14" fill="#786274"/><polygon points="160,14 184,50 160,50" fill="#604e5c"/><rect x="158" y="2" width="4" height="14" fill="#604e5c"/><rect x="153" y="6" width="14" height="3.5" fill="#604e5c"/><rect x="134" y="48" width="52" height="4" fill="#fbf4ee"/><rect x="122" y="94" width="76" height="4" fill="#fbf4ee"/><path d="M150 72v-8a10 10 0 0120 0v8z" fill="#684858" stroke="#fbf4ee" stroke-width="2"/><circle cx="160" cy="104" r="9" fill="#fbf4ee"/><circle cx="160" cy="104" r="6" fill="#b06c7c"/><path d="M152 124v-10a8 8 0 0116 0v10z" fill="#684858" stroke="#fbf4ee" stroke-width="2"/><path d="M44 124 Q48 104 52 84" stroke="#4e423a" stroke-width="3" fill="none"/><g fill="#3e5c46"><ellipse cx="66" cy="84" rx="17" ry="4.5" transform="rotate(-25 52 84)"/><ellipse cx="66" cy="84" rx="17" ry="4.5" transform="rotate(25 52 84)"/><ellipse cx="66" cy="84" rx="17" ry="4.5" transform="rotate(75 52 84)"/><ellipse cx="66" cy="84" rx="17" ry="4.5" transform="rotate(115 52 84)"/><ellipse cx="66" cy="84" rx="17" ry="4.5" transform="rotate(165 52 84)"/></g></svg>';
+var PK=[["證件／錢財",["護照（拍照）","越南簽證（需印出）","身分證／健保卡","信用卡","美金／越南盾","台幣"]],["衣物",["外出衣物","內衣褲＋襪子","鞋子（可備拖鞋 ×1）","睡衣","泳衣＆運動服"]],["3C 相關",["行動電源（不可托運！）","轉接頭","充電器（手機／相機）","自拍棒","網卡","耳機","底片相機"]],["盥洗用品",["洗面乳、卸妝、牙刷組","保養品、護髮","隱形眼鏡、藥水、眼鏡","衛生紙、衛生棉","隨身藥品（胃藥、過敏藥）"]],["其他物品",["錢包（外幣用）","保溫瓶","筆","行李秤","塑膠袋（可分裝換洗衣物）","雨傘"]]];
+var packed=[];try{packed=JSON.parse(localStorage.getItem("hcm-pack")||"[]")}catch(e){packed=[]}
+var CLK='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>';
+var CPI='<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 012-2h9"/></svg>';
+function fl(no,d,a,b,t1,t2){return '<div class="tk"><div class="row"><span class="ttag">FLIGHT</span><span class="clk">'+CLK+t1+' → '+t2+'</span></div><h3>✈️ '+a+' → '+b+'</h3><p class="sub">'+d+'</p><div class="dv"></div><div class="lb">Flight no.</div><div class="num">'+no+'</div></div>'}
+function sm(tag,t,body){return '<div class="tk"><div class="row"><span class="ttag">'+tag+'</span></div><h3>'+t+'</h3><p class="sub">'+body+'</p></div>'}
+function cpRow(l,v){return '<div class="lb">'+l+'</div><div class="cp"><span class="num">'+v+'</span><button class="cpb" data-v="'+v+'" aria-label="複製">'+CPI+'</button></div>'}
+function infoHTML(){return '<div class="hero">'+CH+'</div>'+fl("JX711","12/1（二）","台北 T2","胡志明 T2","07:40","10:30")+fl("JX714","12/5（六）","胡志明 T2","台北 T2","18:00","22:20")+
+'<div class="tk"><div class="row"><span class="ttag">HOTEL</span><span class="clk">'+CLK+'Check-in 14:00</span></div><h3>🏨 境飯店 Thai Van Lung</h3><p class="sub">36-38 Thai Van Lung, Ben Nghe Ward, Sai Gon</p><div class="bts">'+bt(pu("hotel"),"pin","地圖")+'<button class="bt" id="rv" type="button">🎫 顯示訂房編號</button></div><div id="rvb" hidden><div class="dv"></div>'+cpRow("Hotel booking no.","1616333202590012")+cpRow("Hotel confirmation no.","1616332494609889")+'</div></div>'+
+sm("VISA","📄 E-visa 電子簽證","約 3 個工作天，USD 25。核准後列印，入境時出示。")+sm("TRANSPORT","🚕 機場接送","用 Grab。從 A1 出口出來，跨過車道就是停車場；實際上車地點以 App 顯示為準。")+sm("POWER","🔌 插座","越南 220V，A 型與 C 型混用。台灣電器是 110V，建議帶 C 型轉接頭 1–2 個。")}
+function wireInfo(){var rv=document.getElementById("rv"),bx=document.getElementById("rvb");if(rv)rv.onclick=function(){bx.hidden=!bx.hidden;rv.textContent=bx.hidden?"🎫 顯示訂房編號":"🎫 隱藏訂房編號"};
+main.querySelectorAll(".cpb").forEach(function(b){b.onclick=function(){var v=b.dataset.v;function done(){var o=b.innerHTML;b.textContent="已複製";setTimeout(function(){b.innerHTML=o},1200)}
+function fb(){var t=document.createElement("textarea");t.value=v;document.body.appendChild(t);t.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(t);done()}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(done,fb)}else fb()}})}
 var IR=[[/搭機|抵達機場/,"✈️"],[/一日遊/,"🚌"],[/按摩|Spa/i,"💆"],[/咖啡|Coffee|CAFE/i,"☕"],[/Saké|酒吧|Summer/,"🍸"],[/抹茶/,"🍵"],[/Ivoire/,"🍰"],[/Bánh Mì/,"🥖"],[/餐|河粉|吃/,"🍽️"],[/寄行李|退房/,"🧳"],[/逛街|Garmentory/,"🛍️"]];
 function ico(x){var e="";IR.some(function(r){if(r[0].test(x[1])){e=r[1];return true}});if(!e&&x[4])e="📷";return e?'<span class="em">'+e+'</span>':""}
 var EXP={};try{EXP=JSON.parse(localStorage.getItem("hcm-exp")||"{}")}catch(e){EXP={}}
@@ -161,12 +200,16 @@ r();return box}
 var prev="";
 function draw(){
 var bar=document.getElementById("bar"),st=document.getElementById("days");bar.innerHTML="";
-[["trip","行程"],["info","資訊"],["todo","待補（"+(TODO.length-done.length)+"）"]].forEach(function(v){var b=document.createElement("button");b.textContent=v[1];b.setAttribute("aria-current",view==v[0]);b.onclick=function(){view=v[0];draw();window.scrollTo(0,0)};bar.appendChild(b)});
+[["todo","待辦事項（"+(TODO.length-done.length)+"）"],["trip","行程"],["info","資訊"],["pack","行李清單"]].forEach(function(v){var b=document.createElement("button");b.textContent=v[1];b.setAttribute("aria-current",view==v[0]);b.onclick=function(){view=v[0];draw();window.scrollTo(0,0)};bar.appendChild(b)});
 st.hidden=view!="trip";st.innerHTML="";
 if(view=="trip"){DAYS.forEach(function(D,k){var b=document.createElement("button");b.className="dc";b.setAttribute("aria-selected",k+1==cur);b.innerHTML='<span class="wd">'+WD[k]+'<sup>D'+(k+1)+'</sup></span><b>'+(k+1)+'</b><span class="mo">12月</span>';b.onclick=function(){cur=k+1;draw()};st.appendChild(b)});
 var sel=st.children[cur-1];if(sel)st.scrollLeft=sel.offsetLeft-st.clientWidth/2+sel.clientWidth/2}
 main.innerHTML="";
-if(view=="info"){main.innerHTML='<div class="card"><h3>航班</h3><p>12/1　台北 T2 → 胡志明 T2　JX711　07:40–10:30</p><p>12/5　胡志明 T2 → 台北 T2　JX714　18:00–22:20</p></div><div class="card"><h3>住宿</h3><p>境飯店 Thai Van Lung</p><p>36-38 Thai Van Lung, Ben Nghe Ward, Sai Gon</p><div class="bts">'+bt(pu("hotel"),"pin","地圖")+'</div></div><div class="card"><h3>簽證</h3><p>E-visa，約 3 個工作天，USD 25。核准後列印，入境時出示。</p></div><div class="card"><h3>機場接送</h3><p>用 Grab。從 A1 出口出來，跨過車道就是停車場；實際上車地點以 App 顯示為準。</p></div><div class="card"><h3>插座</h3><p>越南 220V，A 型與 C 型混用。台灣電器是 110V，建議帶 C 型轉接頭 1–2 個。</p></div>';return}
+if(view=="info"){main.innerHTML=infoHTML();wireInfo();return}
+if(view=="pack"){var tot=0;PK.forEach(function(g){tot+=g[1].length});var pp=document.createElement("p");pp.className="prog";main.appendChild(pp);
+function upd(){pp.textContent="已準備 "+packed.length+" / "+tot+" 項"}upd();
+PK.forEach(function(g,gi){var h=document.createElement("h3");h.className="gh";h.textContent=g[0];main.appendChild(h);var ul=document.createElement("ul");ul.className="ck";
+g[1].forEach(function(t,i){var key=gi+"-"+i,l=document.createElement("li");l.className="chk";var lb=document.createElement("label");var c=document.createElement("input");c.type="checkbox";c.checked=packed.indexOf(key)>-1;c.onchange=function(){packed=packed.filter(function(y){return y!==key});if(c.checked)packed.push(key);try{localStorage.setItem("hcm-pack",JSON.stringify(packed))}catch(e){}upd()};var sp=document.createElement("span");sp.textContent=t;lb.appendChild(c);lb.appendChild(sp);l.appendChild(lb);ul.appendChild(l)});main.appendChild(ul)});return}
 if(view=="todo"){var p=document.createElement("p");p.className="prog";p.textContent="已補 "+done.length+" / "+TODO.length+" 項";main.appendChild(p);var u=document.createElement("ul");u.className="ck";TODO.forEach(function(x,k){var l=document.createElement("li");l.className="chk";var lb=document.createElement("label");var c=document.createElement("input");c.type="checkbox";c.checked=done.indexOf(k)>-1;c.onchange=function(){done=done.filter(function(y){return y!==k});if(c.checked)done.push(k);save();p.textContent="已補 "+done.length+" / "+TODO.length+" 項";draw()};var s=document.createElement("span");s.textContent=x;lb.appendChild(c);lb.appendChild(s);l.appendChild(lb);u.appendChild(l)});main.appendChild(u);return}
 var D=DAYS[cur-1];
 var pg=document.createElement("div");pg.className="pg";pg.innerHTML='<button aria-label="前一天">‹</button><input type="range" min="1" max="5" value="'+cur+'" aria-label="選擇天數"><button aria-label="後一天">›</button><span>Day '+cur+' / 5</span>';
@@ -177,10 +220,10 @@ var ol=document.createElement("ol");ol.className="tl";prev="";
 D.i.forEach(function(x){var k=x[4]||"",ex=x[5]||{};
 if(prev&&k){var g=document.createElement("li");g.className="leg";var t=LEG[prev+">"+k];g.innerHTML=(t?'<span>🚶 '+t+'</span>':'')+(WALK[prev+">"+k]?bt(du(prev,k,"walking"),"nav","步行"):"")+(WALK[prev+">"+k]?"":bt(du(prev,k,"driving"),"nav","車程"));ol.appendChild(g)}
 var li=document.createElement("li");li.className="it";
-var tg="";(x[3]||[]).forEach(function(f){tg+='<span class="tag">待補：'+f+'</span>'});
+var hr=HRS[k||ex.m]||"",tg="";(x[3]||[]).forEach(function(f){if(f.charAt(0)=="✓")tg+='<span class="tag ok">'+f+'</span>';else if(KEEP.indexOf(f)>-1)tg+='<span class="tag">待補：'+f+'</span>'});
 var bb="";if(k)bb+=bt(pu(k),"pin","地圖");if(ex.m)bb+=bt(pu(ex.m),"pin","地圖");if(ex.u)bb+=bt(ex.u,"ln",ex.l);
 var cf="";(ex.c||[]).forEach(function(c){cf+='<div class="cf">'+bt(pu(c[2]),"cf",c[0])+(c[1]?'<span class="d">'+c[1]+'</span>':'')+'</div>'});
-li.innerHTML='<div class="tm'+(x[0]?'':' no')+'">'+(x[0]||"未定")+'</div><div class="bd"><div class="n">'+ico(x)+x[1]+'</div>'+(tg?'<div class="tags">'+tg+'</div>':'')+((x[2]||cf||bb)?'<div class="sep"></div>':'')+(x[2]?'<div class="d">'+x[2]+'</div>':'')+cf+(bb?'<div class="bts">'+bb+'</div>':'')+'</div>';
+li.innerHTML=(x[0]?'<div class="tm">'+x[0]+'</div>':'')+'<div class="bd"><div class="n">'+ico(x)+x[1]+'</div>'+(tg?'<div class="tags">'+tg+'</div>':'')+((x[2]||cf||bb||hr)?'<div class="sep"></div>':'')+(x[2]?'<div class="d">'+x[2]+'</div>':'')+(hr?'<div class="d">🕒 營業時間: '+hr+'</div>':'')+cf+(bb?'<div class="bts">'+bb+'</div>':'')+'</div>';
 ol.appendChild(li);prev=k});
 main.appendChild(ol);main.appendChild(expCard())}
 var n=Math.ceil((new Date(2026,11,1)-new Date())/864e5),cd=document.getElementById("cd");
