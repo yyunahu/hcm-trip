@@ -11,6 +11,9 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="胡志明">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&display=swap">
 <style>
 :root{--bg:#e2e9cf;--card:#f3f6e8;--ink:#2b3322;--mute:#6b765b;--line:#c3cea8;--bt:#d3ddb5;--btink:#3a4a22;--acc:#5f7a2e;--tag:#eadfb2;--tagink:#7a5a12;
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
@@ -103,10 +106,44 @@ li.leg{margin-left:0}
 .cp{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:2px 0 10px}
 .cpb{flex:none;border:0;background:var(--bt);color:var(--btink);border-radius:10px;padding:6px 10px;cursor:pointer;font:inherit;font-size:.85rem}
 button.bt{border:0;cursor:pointer;font:inherit;font-size:.92rem;font-weight:600}
+.wrap{max-width:640px;margin:0 auto;padding:14px 16px 0}
+.hero2{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:18px 16px 16px;text-align:center}
+.chip{display:inline-block;padding:3px 14px;border-radius:99px;border:1px solid var(--line);background:var(--bg);font-size:.85rem;font-weight:600}
+.hero2 h1{font-size:2.1rem;margin:10px 0 12px}
+.cdn{background:var(--bg);border:1px solid var(--line);border-radius:20px;padding:10px 8px}
+.cl{color:var(--mute);font-size:.9rem}
+.cu{display:flex;justify-content:center;align-items:flex-start;gap:8px;margin-top:4px}
+.cu span{display:flex;flex-direction:column;align-items:center;font-size:.72rem;color:var(--mute);min-width:44px}
+.cu b{font:400 1.8rem/1.2 Georgia,serif;color:var(--acc)}
+.cu i{font-style:normal;font-size:1.4rem;color:var(--ink)}
+#tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+.tile{display:flex;flex-direction:column;gap:2px;text-align:left;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:22px;padding:14px 16px;cursor:pointer}
+.tile .th{font-size:.85rem;font-weight:700;color:var(--acc)}.tile span{color:var(--mute);font-size:.9rem}
+.tile:focus-visible,.mx:focus-visible,.gb:focus-visible{outline:3px solid var(--acc);outline-offset:2px}
+#md{position:fixed;inset:0;z-index:20;background:rgba(20,28,16,.55);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;padding:calc(20px + env(safe-area-inset-top,0px)) 16px calc(20px + env(safe-area-inset-bottom,0px))}
+#md[hidden]{display:none}
+.mc{position:relative;width:100%;max-width:440px;background:var(--card);border-radius:28px;padding:22px 18px 18px}
+.mx{position:absolute;top:12px;right:14px;border:0;background:none;color:var(--mute);font-size:1.2rem;cursor:pointer;padding:6px 10px}
+.mi{text-align:center;font-size:2.2rem}.mh{text-align:center;font-size:1.2rem;margin:2px 0 8px}
+.mb{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:12px 14px;margin-top:12px}
+.mb h3{margin:0 0 4px;font-size:1rem}.mb p{margin:2px 0}
+.fr{padding:8px 0;border-bottom:1px dashed var(--line)}.fr:last-child{border:0}
+.fh{display:flex;justify-content:space-between;color:var(--acc)}
+.gb{display:block;text-align:center;margin-top:12px;padding:11px;border-radius:99px;background:var(--acc);color:var(--card);font-weight:700;text-decoration:none}
+.nf input,.nf textarea,.ef1 input{font:inherit;width:100%;padding:9px 12px;border-radius:12px;border:1px solid var(--line);background:var(--bg);color:var(--ink);margin-bottom:8px}
+.ef1{display:flex;gap:8px;align-items:flex-start}.ef1 input{margin:0}
+.nb{white-space:pre-wrap;margin:4px 0 0}
+li.chk{display:flex;align-items:center}li.chk label{flex:1}
+.dx{flex:none;border:0;background:none;color:var(--mute);font-size:1rem;padding:10px 14px;cursor:pointer}
+
+body,button,input,textarea,select,h1,h2,h3,.tm,.cu b,.dc b,.dc .wd,.dc .mo,.ttag,.clk,.lb,.pg span,.eb,.chip{font-family:"Huninn","jf-openhuninn","PingFang TC","Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif}
+.tm{font-size:1.1rem;letter-spacing:.02em}
+.cu b{font-weight:400}
 </style>
 </head>
 <body>
-<header><div><p class="eb">Xin chào · 胡志明之旅</p><h1>Saigon<em>遊記</em></h1></div><span id="cd" hidden></span></header>
+<div class="wrap"><section class="hero2"><span class="chip">2026.12.01 – 12.05</span><h1>胡志明旅遊</h1><div id="cdn" class="cdn"></div></section><div id="tiles"></div></div>
+<div id="md" hidden></div>
 <nav id="bar" aria-label="主選單"></nav>
 <div id="days" hidden></div>
 <main id="main"></main>
@@ -182,6 +219,31 @@ function wireInfo(){var rv=document.getElementById("rv"),bx=document.getElementB
 main.querySelectorAll(".cpb").forEach(function(b){b.onclick=function(){var v=b.dataset.v;function done(){var o=b.innerHTML;b.textContent="已複製";setTimeout(function(){b.innerHTML=o},1200)}
 function fb(){var t=document.createElement("textarea");t.value=v;document.body.appendChild(t);t.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(t);done()}
 if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(done,fb)}else fb()}})}
+var FLT=[["12/01（去程）","JX711","台北 (T2) 07:40 → 胡志明 (T2) 10:30"],["12/05（回程）","JX714","胡志明 (T2) 18:00 → 台北 (T2) 22:20"]];
+var HB="1616333202590012",HC="1616332494609889";
+var T0=new Date("2026-12-01T07:40:00+08:00"),T1=new Date("2026-12-05T22:20:00+08:00");
+function p2(n){return n<10?"0"+n:""+n}
+function tick(){var el=document.getElementById("cdn"),d=T0-new Date();if(d>0){var s=Math.floor(d/1e3);el.innerHTML='<div class="cl">⏱ 距離出發還有</div><div class="cu"><span><b>'+Math.floor(s/86400)+'</b>天</span><i>:</i><span><b>'+p2(Math.floor(s%86400/3600))+'</b>時</span><i>:</i><span><b>'+p2(Math.floor(s%3600/60))+'</b>分</span><i>:</i><span><b>'+p2(s%60)+'</b>秒</span></div>'}else el.innerHTML='<div class="cl">'+(new Date()<T1?"旅程進行中，玩得開心 🌴":"旅程結束，歡迎回家 ✈️")+'</div>'}
+function wireCopy(root){root.querySelectorAll(".cpb").forEach(function(b){b.onclick=function(){var v=b.dataset.v;function dn(){var o=b.innerHTML;b.textContent="已複製";setTimeout(function(){b.innerHTML=o},1200)}
+function fb(){var t=document.createElement("textarea");t.value=v;document.body.appendChild(t);t.select();try{document.execCommand("copy")}catch(e){}document.body.removeChild(t);dn()}
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(v).then(dn,fb)}else fb()}})}
+function closeM(){document.getElementById("md").hidden=true}
+function openTrip(k){var m=document.getElementById("md"),f=k=="f",fh='<div class="mb">'+FLT.map(function(x){return '<div class="fr"><div class="fh"><b>'+x[0]+'</b><b>星宇 '+x[1]+'</b></div><div>'+x[2]+'</div></div>'}).join("")+'</div>',hh='<div class="mb"><h3>境飯店 Kin Hotel (Thai Van Lung)</h3><p class="d">36-38 Thai Van Lung, Ben Nghe Ward, Sai Gon</p><p class="d">Check-in 14:00</p>'+cpRow("Hotel booking no.",HB)+cpRow("Hotel confirmation no.",HC)+'<a class="gb" href="'+pu("hotel")+'" target="_blank" rel="noopener">Google 地圖導航</a></div>',tt=f?"航班資訊":"住宿資訊";
+m.innerHTML='<div class="mc" role="dialog" aria-modal="true" aria-label="'+tt+'"><button class="mx" aria-label="關閉">✕</button><div class="mi">'+(f?"✈️":"🏨")+'</div><h2 class="mh">'+tt+'</h2>'+(f?fh:hh)+'</div>';m.hidden=false;wireCopy(m);m.onclick=function(e){if(e.target===m)closeM()};var x=m.querySelector(".mx");x.onclick=closeM;x.focus()}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeM()});
+function initHome(){document.getElementById("tiles").innerHTML='<button class="tile" id="t1" type="button"><div class="th">✈️ 星宇航空</div><b>去 JX711 07:40</b><span>回 JX714 18:00</span></button><button class="tile" id="t2" type="button"><div class="th">🏨 住宿地點</div><b>境飯店 Kin Hotel</b><span>Thai Van Lung 街</span></button>';document.getElementById("t1").onclick=function(){openTrip("f")};document.getElementById("t2").onclick=function(){openTrip("h")};tick();setInterval(tick,1000)}
+var TX=[];try{TX=JSON.parse(localStorage.getItem("hcm-todox")||"[]")}catch(e){TX=[]}
+function saveT(){try{localStorage.setItem("hcm-todox",JSON.stringify(TX))}catch(e){}}
+function todoLeft(){return TODO.length+TX.length-done.length-TX.filter(function(x){return x.d}).length}
+var NOTES=null;try{NOTES=JSON.parse(localStorage.getItem("hcm-notes"))}catch(e){}
+if(!Array.isArray(NOTES)){NOTES=[{t:"E-visa 電子簽證",b:"約 3 個工作天，USD 25。核准後列印，入境時出示。"},{t:"機場接送",b:"用 Grab。從 A1 出口出來，跨過車道就是停車場；實際上車地點以 App 顯示為準。"},{t:"插座",b:"越南 220V，A 型與 C 型混用。台灣電器是 110V，建議帶 C 型轉接頭 1–2 個。"}]}
+function saveN(){try{localStorage.setItem("hcm-notes",JSON.stringify(NOTES))}catch(e){}}
+var ed=-1;
+function notesView(){var f=document.createElement("div");f.className="card nf";f.innerHTML='<input id="nt" placeholder="標題" aria-label="標題"><textarea id="nb" rows="3" placeholder="寫下想記的事…" aria-label="內容"></textarea><div class="bts"><button class="bt" id="ns" type="button">'+(ed>-1?"儲存":"新增筆記")+'</button>'+(ed>-1?'<button class="bt" id="nc" type="button">取消</button>':"")+'</div>';main.appendChild(f);
+if(ed>-1){f.querySelector("#nt").value=NOTES[ed].t;f.querySelector("#nb").value=NOTES[ed].b}
+f.querySelector("#ns").onclick=function(){var t=f.querySelector("#nt").value.trim(),b=f.querySelector("#nb").value.trim();if(!t&&!b)return;var o={t:t||"筆記",b:b};if(ed>-1)NOTES[ed]=o;else NOTES.unshift(o);ed=-1;saveN();draw()};
+var c=f.querySelector("#nc");if(c)c.onclick=function(){ed=-1;draw()};
+NOTES.forEach(function(n,i){var d=document.createElement("div");d.className="card";var h=document.createElement("h3");h.textContent="📝 "+n.t;var p=document.createElement("p");p.className="nb";p.textContent=n.b;var r=document.createElement("div");r.className="bts";r.innerHTML='<button class="bt" type="button">編輯</button><button class="bt" type="button">刪除</button>';r.children[0].onclick=function(){ed=i;draw();window.scrollTo(0,0)};r.children[1].onclick=function(){NOTES.splice(i,1);saveN();draw()};d.appendChild(h);d.appendChild(p);d.appendChild(r);main.appendChild(d)})}
 var IR=[[/搭機|抵達機場/,"✈️"],[/一日遊/,"🚌"],[/按摩|Spa/i,"💆"],[/咖啡|Coffee|CAFE/i,"☕"],[/Saké|酒吧|Summer/,"🍸"],[/抹茶/,"🍵"],[/Ivoire/,"🍰"],[/Bánh Mì/,"🥖"],[/餐|河粉|吃/,"🍽️"],[/寄行李|退房/,"🧳"],[/逛街|Garmentory/,"🛍️"]];
 function ico(x){var e="";IR.some(function(r){if(r[0].test(x[1])){e=r[1];return true}});if(!e&&x[4])e="📷";return e?'<span class="em">'+e+'</span>':""}
 var EXP={};try{EXP=JSON.parse(localStorage.getItem("hcm-exp")||"{}")}catch(e){EXP={}}
@@ -200,17 +262,24 @@ r();return box}
 var prev="";
 function draw(){
 var bar=document.getElementById("bar"),st=document.getElementById("days");bar.innerHTML="";
-[["todo","待辦事項（"+(TODO.length-done.length)+"）"],["trip","行程"],["info","資訊"],["pack","行李清單"]].forEach(function(v){var b=document.createElement("button");b.textContent=v[1];b.setAttribute("aria-current",view==v[0]);b.onclick=function(){view=v[0];draw();window.scrollTo(0,0)};bar.appendChild(b)});
+[["todo","待辦事項（"+todoLeft()+"）"],["trip","行程"],["notes","筆記"],["pack","行李清單"]].forEach(function(v){var b=document.createElement("button");b.textContent=v[1];b.setAttribute("aria-current",view==v[0]);b.onclick=function(){view=v[0];ed=-1;draw();window.scrollTo(0,0)};bar.appendChild(b)});
 st.hidden=view!="trip";st.innerHTML="";
 if(view=="trip"){DAYS.forEach(function(D,k){var b=document.createElement("button");b.className="dc";b.setAttribute("aria-selected",k+1==cur);b.innerHTML='<span class="wd">'+WD[k]+'<sup>D'+(k+1)+'</sup></span><b>'+(k+1)+'</b><span class="mo">12月</span>';b.onclick=function(){cur=k+1;draw()};st.appendChild(b)});
 var sel=st.children[cur-1];if(sel)st.scrollLeft=sel.offsetLeft-st.clientWidth/2+sel.clientWidth/2}
 main.innerHTML="";
-if(view=="info"){main.innerHTML=infoHTML();wireInfo();return}
+if(view=="notes"){notesView();return}
 if(view=="pack"){var tot=0;PK.forEach(function(g){tot+=g[1].length});var pp=document.createElement("p");pp.className="prog";main.appendChild(pp);
 function upd(){pp.textContent="已準備 "+packed.length+" / "+tot+" 項"}upd();
 PK.forEach(function(g,gi){var h=document.createElement("h3");h.className="gh";h.textContent=g[0];main.appendChild(h);var ul=document.createElement("ul");ul.className="ck";
 g[1].forEach(function(t,i){var key=gi+"-"+i,l=document.createElement("li");l.className="chk";var lb=document.createElement("label");var c=document.createElement("input");c.type="checkbox";c.checked=packed.indexOf(key)>-1;c.onchange=function(){packed=packed.filter(function(y){return y!==key});if(c.checked)packed.push(key);try{localStorage.setItem("hcm-pack",JSON.stringify(packed))}catch(e){}upd()};var sp=document.createElement("span");sp.textContent=t;lb.appendChild(c);lb.appendChild(sp);l.appendChild(lb);ul.appendChild(l)});main.appendChild(ul)});return}
-if(view=="todo"){var p=document.createElement("p");p.className="prog";p.textContent="已補 "+done.length+" / "+TODO.length+" 項";main.appendChild(p);var u=document.createElement("ul");u.className="ck";TODO.forEach(function(x,k){var l=document.createElement("li");l.className="chk";var lb=document.createElement("label");var c=document.createElement("input");c.type="checkbox";c.checked=done.indexOf(k)>-1;c.onchange=function(){done=done.filter(function(y){return y!==k});if(c.checked)done.push(k);save();p.textContent="已補 "+done.length+" / "+TODO.length+" 項";draw()};var s=document.createElement("span");s.textContent=x;lb.appendChild(c);lb.appendChild(s);l.appendChild(lb);u.appendChild(l)});main.appendChild(u);return}
+if(view=="todo"){var af=document.createElement("div");af.className="card nf";af.innerHTML='<div class="ef1"><input id="tn" placeholder="新增待辦事項" aria-label="新增待辦事項"><button class="bt" id="ta" type="button">新增</button></div>';main.appendChild(af);
+af.querySelector("#ta").onclick=function(){var v=af.querySelector("#tn").value.trim();if(!v)return;TX.push({t:v,d:false});saveT();draw()};
+var p=document.createElement("p");p.className="prog";p.textContent="已完成 "+(TODO.length+TX.length-todoLeft())+" / "+(TODO.length+TX.length)+" 項";main.appendChild(p);
+var u=document.createElement("ul");u.className="ck";
+function row(txt,chk,onchg,del){var l=document.createElement("li");l.className="chk";var lb=document.createElement("label");var c=document.createElement("input");c.type="checkbox";c.checked=chk;c.onchange=function(){onchg(c.checked)};var s=document.createElement("span");s.textContent=txt;lb.appendChild(c);lb.appendChild(s);l.appendChild(lb);if(del){var x=document.createElement("button");x.className="dx";x.textContent="✕";x.setAttribute("aria-label","刪除");x.onclick=del;l.appendChild(x)}u.appendChild(l)}
+TODO.forEach(function(x,k){row(x,done.indexOf(k)>-1,function(v){done=done.filter(function(y){return y!==k});if(v)done.push(k);save();draw()})});
+TX.forEach(function(x,k){row(x.t,x.d,function(v){x.d=v;saveT();draw()},function(){TX.splice(k,1);saveT();draw()})});
+main.appendChild(u);return}
 var D=DAYS[cur-1];
 var pg=document.createElement("div");pg.className="pg";pg.innerHTML='<button aria-label="前一天">‹</button><input type="range" min="1" max="5" value="'+cur+'" aria-label="選擇天數"><button aria-label="後一天">›</button><span>Day '+cur+' / 5</span>';
 var bs=pg.querySelectorAll("button");bs[0].onclick=function(){if(cur>1){cur--;draw()}};bs[1].onclick=function(){if(cur<5){cur++;draw()}};pg.querySelector("input").onchange=function(e){cur=+e.target.value;draw()};
@@ -226,9 +295,7 @@ var cf="";(ex.c||[]).forEach(function(c){cf+='<div class="cf">'+bt(pu(c[2]),"cf"
 li.innerHTML=(x[0]?'<div class="tm">'+x[0]+'</div>':'')+'<div class="bd"><div class="n">'+ico(x)+x[1]+'</div>'+(tg?'<div class="tags">'+tg+'</div>':'')+((x[2]||cf||bb||hr)?'<div class="sep"></div>':'')+(x[2]?'<div class="d">'+x[2]+'</div>':'')+(hr?'<div class="d">🕒 營業時間: '+hr+'</div>':'')+cf+(bb?'<div class="bts">'+bb+'</div>':'')+'</div>';
 ol.appendChild(li);prev=k});
 main.appendChild(ol);main.appendChild(expCard())}
-var n=Math.ceil((new Date(2026,11,1)-new Date())/864e5),cd=document.getElementById("cd");
-if(n>0){cd.textContent="距出發 "+n+" 天";cd.hidden=false}
-draw();
+draw();initHome();
 if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("sw.js").catch(function(){})})}
 </script>
 </body>
