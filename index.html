@@ -172,12 +172,13 @@ var DAYS=[
 ["","晚餐：Pho Quynh","河粉",["時間"],"pq"],
 ["21:30","按摩：Nola Spa","精油身體按摩 90 分鐘 + 洗髮 45 分鐘 ×2",["✓已預約"],"nola"]]},
 {d:"12/3（四）",h:"逛街與咖啡",i:[
-["","早餐","飯店早餐，或飯店旁 Pizza 4P's Le Thanh Ton",["時間","擇一"],"",{m:"pizza"}],
+["","飯店早餐","",[],""],
+["11:15","Pizza 4P's Le Thanh Ton","",["✓已預約"],"pizza"],
 ["","11 Garmentory","最大間的選物店",["時間"],"gar"],
 ["","粉紅教堂（新定教堂）","",["時間"],"ch"],
 ["","咖啡廳 4 選 1","點下面的店名開地圖",["時間","決定哪一間"],"",{c:[["ngâm CAFE","麵包咖啡","ngam"],["Blue Dream Bread Saigon","也是有麵包","blue"],["Cộng Coffee","","cong"],["Nhà Ba Teria","Craft Matcha & Coffee，像峽谷的咖啡廳","nha"]]}],
-["17:30","按摩：Rose Spa DAKAO","療程：Package 5",["✓已預約"],"rose"],
-["20:00","晚餐：Mùa Craft Saké","清酒吧",["是否已訂位"],"mua"],
+["17:30","按摩：Rose Spa DAKAO","Package 5・120 分鐘：草本足浴、全身理療按摩 60 分、養生理療按摩 60 分",["✓已預約"],"rose"],
+["20:00","晚餐：Mùa Craft Saké","清酒吧｜預訂確認碼: 2MUH3WHP55OX",["✓已預約"],"mua"],
 ["","酒吧：Summer Experiment","",["時間"],"sum"]]},
 {d:"12/4（五）",h:"悠閒日",i:[
 ["","飯店早餐、游泳池","整裝後再出門",["時間"]],
@@ -185,7 +186,7 @@ var DAYS=[
 ["","逛街買買","",["地點與時間"]],
 ["","Bánh Mì Huynh Hoa","越南法國麵包",["時間"],"bm"],
 ["17:30","按摩：Sả Spa & Onsen","Body massage 3 in 1，120 分鐘",["✓已預約"],"sa"],
-["20:00","晚餐：SÂM Saigon","大學同學的酒吧",["是否已訂位"],"sam"]]},
+["20:00","晚餐：SÂM Saigon","大學同學的酒吧",["✓已預約"],"sam"]]},
 {d:"12/5（六）",h:"返程日",i:[
 ["","早餐、整理退房","",["退房時間"]],
 ["09:30","吃河粉：PHỞ VIỆT NAM","",[],"pv"],
@@ -244,7 +245,7 @@ if(ed>-1){f.querySelector("#nt").value=NOTES[ed].t;f.querySelector("#nb").value=
 f.querySelector("#ns").onclick=function(){var t=f.querySelector("#nt").value.trim(),b=f.querySelector("#nb").value.trim();if(!t&&!b)return;var o={t:t||"筆記",b:b};if(ed>-1)NOTES[ed]=o;else NOTES.unshift(o);ed=-1;saveN();draw()};
 var c=f.querySelector("#nc");if(c)c.onclick=function(){ed=-1;draw()};
 NOTES.forEach(function(n,i){var d=document.createElement("div");d.className="card";var h=document.createElement("h3");h.textContent="📝 "+n.t;var p=document.createElement("p");p.className="nb";p.textContent=n.b;var r=document.createElement("div");r.className="bts";r.innerHTML='<button class="bt" type="button">編輯</button><button class="bt" type="button">刪除</button>';r.children[0].onclick=function(){ed=i;draw();window.scrollTo(0,0)};r.children[1].onclick=function(){NOTES.splice(i,1);saveN();draw()};d.appendChild(h);d.appendChild(p);d.appendChild(r);main.appendChild(d)})}
-var IR=[[/搭機|抵達機場/,"✈️"],[/一日遊/,"🚌"],[/按摩|Spa/i,"💆"],[/咖啡|Coffee|CAFE/i,"☕"],[/Saké|酒吧|Summer/,"🍸"],[/抹茶/,"🍵"],[/Ivoire/,"🍰"],[/Bánh Mì/,"🥖"],[/餐|河粉|吃/,"🍽️"],[/寄行李|退房/,"🧳"],[/逛街|Garmentory/,"🛍️"]];
+var IR=[[/搭機|抵達機場/,"✈️"],[/一日遊/,"🚌"],[/按摩|Spa/i,"💆"],[/咖啡|Coffee|CAFE/i,"☕"],[/Saké|酒吧|Summer/,"🍸"],[/抹茶/,"🍵"],[/Ivoire/,"🍰"],[/Bánh Mì/,"🥖"],[/餐|河粉|吃|Pizza/,"🍽️"],[/寄行李|退房/,"🧳"],[/逛街|Garmentory/,"🛍️"]];
 function ico(x){var e="";IR.some(function(r){if(r[0].test(x[1])){e=r[1];return true}});if(!e&&x[4])e="📷";return e?'<span class="em">'+e+'</span>':""}
 var EXP={};try{EXP=JSON.parse(localStorage.getItem("hcm-exp")||"{}")}catch(e){EXP={}}
 function saveE(){try{localStorage.setItem("hcm-exp",JSON.stringify(EXP))}catch(e){}}
